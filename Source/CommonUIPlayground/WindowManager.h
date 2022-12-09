@@ -4,12 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "CommonActivatableWidget.h"
-#include "UIMainScreen.h"
 #include "Widgets/CommonActivatableWidgetContainer.h"
 #include "WindowManager.generated.h"
 
 /**
- * 
+ * The window manager provides methods to push and pop widgets to/from a base layer
  */
 UCLASS()
 class COMMONUIPLAYGROUND_API UWindowManager : public UGameInstanceSubsystem
@@ -21,15 +20,11 @@ public:
 	void SetBaseLayer(UCommonActivatableWidgetContainerBase* InBaseLayer);
 
 	UFUNCTION(BlueprintCallable)
-	void SetMainScreen(UUIMainScreen* InMainScreen);
-
-	UFUNCTION(BlueprintCallable)
 	UCommonActivatableWidget* PushModal(TSubclassOf<UCommonActivatableWidget> ActivatableWidgetClass);
 
 	UFUNCTION(BlueprintCallable)
 	void PopModal();
 
 protected:
-	UUIMainScreen* MainScreen = nullptr;
 	UCommonActivatableWidgetContainerBase* BaseLayer = nullptr;
 };

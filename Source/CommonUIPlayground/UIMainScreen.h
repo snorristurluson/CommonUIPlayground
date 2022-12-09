@@ -3,12 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CommonActivatableWidget.h"
 #include "MyActivatableWidget.h"
 #include "UIMainScreen.generated.h"
 
 /**
- * 
+ * The main screen handles the Escape action
  */
 UCLASS()
 class COMMONUIPLAYGROUND_API UUIMainScreen : public UMyActivatableWidget
@@ -16,15 +15,9 @@ class COMMONUIPLAYGROUND_API UUIMainScreen : public UMyActivatableWidget
 	GENERATED_BODY()
 
 public:
-	void SetStackEmpty(bool bValue);
-
 	UFUNCTION(BlueprintNativeEvent)
 	void HandleEscapeAction();
 
-	UFUNCTION(BlueprintNativeEvent)
-	void HandleMapAction();
-
 protected:
 	virtual void NativeOnInitialized() override;
-	bool IsStackEmpty = true;
 };
